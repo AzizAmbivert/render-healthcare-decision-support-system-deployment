@@ -88,8 +88,8 @@ def home():
                 my_precautions.append(i)
 
             return render_template('index.html', predicted_disease=predicted_disease, dis_des=dis_des,
-                                   my_precautions=my_precautions, medications=medications, my_diet=rec_diet,
-                                   workout=workout)
+                        my_precautions=my_precautions, medications=medications, my_diet=rec_diet,
+                          workout=workout)
 
     return render_template('index.html')
 
@@ -113,8 +113,5 @@ def developer():
 @app.route('/blog')
 def blog():
     return render_template("blog.html")
-
-
 if __name__ == '__main__':
-
     app.run(debug=True)
