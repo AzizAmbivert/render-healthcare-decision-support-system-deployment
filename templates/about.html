@@ -1,136 +1,107 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  </head>
-    <style>
-   .content-container {
-  background-color: rgba(255, 255, 255, 0.5); /* White with transparency */
-  padding: 30px;
-  border-radius: 10px;
-  color: #000; /* Black text for better contrast */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-             }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medical Health Center</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
-body {
-  position: relative;
-  margin: 0;
-  min-height: 100vh;
-  overflow: hidden;
-  }
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
 
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("{{ url_for('static', filename='med.jpg') }}");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  transition: transform 0.5s ease, filter 0.5s ease;
-  z-index: -1;
-}
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("{{ url_for('static', filename='med.jpg') }}");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: -1;
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
 
-/* Hover effect on body */
-body:hover::before {
-  transform: scale(1.05); /* Zoom in */
-  filter: brightness(0.9); /* Slight darkening */
-}
+    body:hover::before {
+      transform: scale(1.05);
+      filter: brightness(0.9);
+    }
 
+    .content-container {
+      background-color: rgba(255, 255, 255, 0.3);
+      padding: 30px;
+      border-radius: 10px;
+      color: #000;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
 
-    .logo {
-            width: 50px;
-            height: 50px;
-            color: black;
-            margin-top: 0;
-            margin-left: 2px;
-        }
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid #000;
+    }
 
-        .myimg {
-            width: 50px;
-            height: 50px;
-            border: 2px solid black;
-            border-radius: 25px;
-        }
-       </style>
-  <body>
-     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark"style="
-    background: linear-gradient(90deg, rgba(0,123,255,0.2), rgba(40,167,69,0.3));
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);">
-        <div class="container-fluid">
-            <!-- Logo at the top-left corner -->
-            <div class="logo">
-                <img class="myimg" src="{{ url_for('static', filename='img.png') }}" alt="">
-            </div>
+  </style>
+</head>
 
-            <a class="navbar-brand" href="#">Health Center</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contact">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/developer">Developer</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/blog">Blog</a>
-                    </li>
-                </ul>
-             </div>
-        </div>
-    </nav>
-     <div class="container my-4 mt-4 content-container">
-
-     <h3> About Us</h3>
-
-<p>Welcome to Medical Health center, where health meets technology for a brighter, healthier future.
-</p>
-<h3>Our Vision</h3>
-
-<p>We envision a world where access to healthcare information is not just a luxury but a fundamental right. Our journey began with a simple yet powerful idea: to empower individuals with the knowledge and tools they need to take control of their health.
-</p>
-<h3>Who We Are
-</h3>
-<p>We are a passionate team of healthcare professionals, data scientists, and technology enthusiasts who share a common goal: to make healthcare accessible, understandable, and personalized for you. With years of experience in both healthcare and cutting-edge technology, we've come together to create this platform as a testament to our commitment to your well-being.
-</p>
-<h3>Our Mission</h3>
-
-<p>At this website, our mission is to provide you with a seamless and intuitive platform that leverages the power of artificial intelligence and machine learning. We want to assist you in identifying potential health concerns based on your reported symptoms, all while offering a wealth of educational resources to enhance your health literacy.
-</p>
-<h3>How We Do It</h3>
-
-<p>Our platform utilizes a robust machine learning model trained on a vast dataset of symptoms and diseases. By inputting your symptoms, our system generates accurate predictions about potential illnesses, allowing you to make informed decisions about your health.
-</p>
-<h3>Your Well-being, Our Priority</h3>
-
-<p>Your health is our top priority. We understand that navigating the complexities of healthcare can be daunting. That's why we've gone the extra mile to provide not only accurate predictions but also comprehensive information about each disease. You'll find descriptions, recommended precautions, medications, dietary advice, and workout tips to support your journey to better health.
-</p>
-<h3>Join Us on this Journey
-</h3>
-<p>We invite you to explore our platform, engage with our educational content, and take control of your health journey. Together, we can revolutionize the way individuals access and understand healthcare information.
-</p>
-<p>Thank you for choosing [Your Website Name] as your trusted health companion. We are here to empower you with knowledge, support, and a brighter, healthier future.
-</p>
-
+<body>
+   <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <div class="logo me-2">
+        <img class="myimg" loading="lazy" src="{{ url_for('static', filename='img.png') }}" alt="Logo">
+      </div>
+      <a class="navbar-brand" href="#">Health Center</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
+          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="/developer">Developer</a></li>
+          <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
+        </ul>
+      </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  </body>
+  </nav>
+  <!-- Main Content -->
+  <div class="container my-4 content-container">
+    <h3>About Us</h3>
+    <p>Welcome to Medical Health Center, where health meets technology for a brighter, healthier future.</p>
+
+    <h3>Our Vision</h3>
+    <p>We envision a world where access to healthcare information is not just a luxury but a fundamental right...</p>
+
+    <h3>Who We Are</h3>
+    <p>We are a passionate team of healthcare professionals, data scientists, and technology enthusiasts...</p>
+
+    <h3>Our Mission</h3>
+    <p>Our mission is to provide you with a seamless and intuitive platform powered by AI and machine learning...</p>
+
+    <h3>How We Do It</h3>
+    <p>Our platform utilizes a robust machine learning model trained on a vast dataset of symptoms and diseases...</p>
+
+    <h3>Your Well-being, Our Priority</h3>
+    <p>You'll find descriptions, precautions, medications, dietary advice, and workout tips to support your health journey.</p>
+
+    <h3>Join Us on this Journey</h3>
+    <p>Explore our platform, engage with our content, and take control of your health journey...</p>
+
+    <p>Thank you for choosing <strong>Healthcare Decision Support Center</strong> as your trusted health companion.</p>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
 </html>

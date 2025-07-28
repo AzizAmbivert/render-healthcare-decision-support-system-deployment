@@ -1,126 +1,117 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  </head>
-   <style>
-   .content-container {
-  background-color: rgba(255, 255, 255, 0.5); /* White with transparency */
-  padding: 30px;
-  border-radius: 10px;
-  color: #000; /* Black text for better contrast */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-             }
-body {
-  position: relative;
-  margin: 0;
-  min-height: 100vh;
-  overflow: hidden;
-  }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About - Healthcare Decision Support</title>
 
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("{{ url_for('static', filename='med.jpg') }}");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  transition: transform 0.5s ease, filter 0.5s ease;
-  z-index: -1;
-}
+  <!-- Normalize for cross-browser consistency -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 
-/* Hover effect on body */
-body:hover::before {
-  transform: scale(1.05); /* Zoom in */
-  filter: brightness(0.9); /* Slight darkening */
-}
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      position: relative;
+      font-family: Arial, sans-serif;
+      color: #000;
+      background-color: #f8f9fa;
+    }
 
-    .logo {
-            width: 50px;
-            height: 50px;
-            color: black;
-            margin-top: 0;
-            margin-left: 2px;
-        }
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("{{ url_for('static', filename='med.jpg') }}");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      z-index: -1;
+      filter: brightness(1);
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
 
-        .myimg {
-            width: 50px;
-            height: 50px;
-            border: 2px solid black;
-            border-radius: 25px;
-        }
-       </style>
-  <body>
-     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="
-    background: linear-gradient(90deg, rgba(0,123,255,0.2), rgba(40,167,69,0.3));
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);">
-        <div class="container-fluid">
-            <!-- Logo at the top-left corner -->
-            <div class="logo">
-                <img class="myimg" src="{{ url_for('static', filename='img.png') }}" alt="">
-            </div>
+    body:hover::before {
+      transform: scale(1.05);
+      filter: brightness(0.9);
+    }
 
-            <a class="navbar-brand" href="#">Health Center</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contact">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/developer">Developer</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/blog">Blog</a>
-                    </li>
-                </ul>
-             </div>
-        </div>
-    </nav>
+    .content-container {
+      background-color: rgba(255, 255, 255, 0.3);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      margin-top: 30px;
+    }
 
-    <div class="container my-4 mt-4 content-container">
-<h6>    About Aziz Wekesa: Your AI & ML Engineer
-</h6>
-<h5>Meet the Developer</h5>
+    .logo .myimg {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid black;
+    }
 
-<p>Hello, I'm Aziz Wekesa, your AI and Machine Learning Engineer with over 2 years of experience in the field. I am passionate about harnessing the power of technology to make a positive impact on people's lives. Allow me to share a bit about my journey in the world of artificial intelligence and machine learning.
-</p>
-<h5>My Expertise
-</h5>
-<p>With a strong academic background in computer science and a deep fascination for AI and ML, I embarked on a journey that has taken me across the globe, working on diverse and innovative projects. Over the years, I've had the privilege of collaborating on international projects that have pushed the boundaries of what's possible in AI and ML.
-</p>
-<h5>A Commitment to Excellence
-</h5>
-<p>My work is driven by a commitment to excellence and a belief that technology should be accessible and beneficial to everyone. Whether it's developing predictive models, creating intelligent algorithms, or designing user-friendly interfaces, I strive for solutions that are both cutting-edge and user-centric.
-</p>
-<h5>Passion for Health Tech
-</h5>
-<p>The development of [Your Website Name] represents a convergence of my passion for AI and my dedication to improving healthcare accessibility. I believe that AI has the potential to transform the way we approach healthcare, making it more personalized and informative. This platform is a testament to that vision.
-</p>
-<h5>Join Me on this Journey
-</h5>
-<p>I invite you to explore Healthcare Decision Support Center and experience firsthand the fusion of AI and healthcare. Together, we can empower individuals with knowledge, promote well-being, and contribute to a brighter and healthier future.
-</p>
+    @media (max-width: 576px) {
+      .content-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <div class="logo me-2">
+        <img class="myimg" loading="lazy" src="{{ url_for('static', filename='img.png') }}" alt="Logo">
+      </div>
+      <a class="navbar-brand" href="#">Health Center</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
+          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="/developer">Developer</a></li>
+          <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container content-container">
+    <h6>About Aziz Wekesa: Your AI & ML Engineer</h6>
+    <h5><strong>Meet the Developer</strong></h5>
+    <p>Hello, I'm Aziz Wekesa, your AI and Machine Learning Engineer with over 2 years of experience in the field. I am passionate about harnessing the power of technology to make a positive impact on people's lives.</p>
+
+    <h5><strong>My Expertise</strong></h5>
+    <p>With a strong academic background in computer science and a deep fascination for AI and ML, I embarked on a journey that has taken me across the globe, working on diverse and innovative projects. I've collaborated on international projects that push the boundaries of what AI can do.</p>
+
+    <h5><strong>A Commitment to Excellence</strong></h5>
+    <p>My work is driven by a commitment to excellence and a belief that technology should be accessible and beneficial to everyone. Whether it's developing predictive models, creating intelligent algorithms, or designing user-friendly interfaces, I focus on building solutions that matter.</p>
+
+    <h5><strong>Passion for Health Tech</strong></h5>
+    <p>The development of <strong>Healthcare Decision Support Center</strong> represents a convergence of my passion for AI and healthcare. I believe AI can transform how we approach care—making it more personalized, affordable, and proactive.</p>
+
+    <h5><strong>Join Me on this Journey</strong></h5>
+    <p>I invite you to explore this platform and experience firsthand how AI and healthcare can work together. Let's empower individuals with knowledge, promote well-being, and shape a healthier tomorrow.</p>
   </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  </body>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+</body>
 </html>
